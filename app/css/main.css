@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'average_sansregular';
+    src: url('../fonts/AverageSans-Regular.woff2') format('woff2'),
+    url('../fonts/AverageSans-Regular.woff') format('woff'),
+    url('../fonts/AverageSans-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "average_sansregular";
+    background-color: #f5f5f5;
+}
+
+h1 {
+    font-size: 42pt;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+h3.subtitle {
+    font-size: 14pt;
+    color: #888;
+    margin-left: 6px;
+    margin-top: -7px;
+}
+
+.pokemon-name {
+    font-size: 14pt;
+    color: #888;
+    margin-left: 6px;
+}
+
+#nombre-pokemon, #buscar-pokemon {
+    height: 30px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin: 5px;
+}
+
+#nombre-pokemon {
+    width: 60%;
+}
+
+#buscar-pokemon {
+    width: 20%;
+}
+
+.content {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
+footer span {
+    font-size: 10pt;
+    color: darkred;
+}
