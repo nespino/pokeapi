@@ -29,7 +29,7 @@ class PokeApi
 
     public function searchByName($name) {
         $result = '';
-        if (strlen($name) > 2) {
+        if (strlen($name) > 0) {
             $template = file_get_contents('pokemon.tpl.php');
             $db = new Db();
             $pokemons = $db->query("SELECT name FROM pokemons WHERE LOWER(name) LIKE LOWER('%" . $name . "%');")->fetchAll();

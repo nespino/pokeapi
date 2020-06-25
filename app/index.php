@@ -8,8 +8,8 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -40,7 +40,7 @@
             </div>
 
             <div id="results-container" class="row">
-                
+
             </div>
 
             <div class="row mt-5">
