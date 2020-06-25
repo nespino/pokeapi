@@ -72,9 +72,7 @@
                     <a href="https://github.com/nespino/pokeapi" target="_blank"><img class="github mr-3" src="img/github.png" /></a>
                 </div>
             </div>
-
         </div>
-
     </div>
 
     <footer>
@@ -83,3 +81,4 @@
 </body>
 
 </html>
+

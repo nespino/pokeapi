@@ -2,6 +2,9 @@
 
 namespace PokePHP;
 
+require 'class.db.php';
+use Db;
+
 class PokeApi
 {
     public function __construct()
@@ -14,16 +17,38 @@ class PokeApi
     {
         $url = $this->baseUrl.'language/'.$lookUp;
 
-        return $this->sendRequest($url);
+        return json_decode($this->sendRequest($url));
     }
 
     public function name($lookUp)
     {
         $url = $this->baseUrl.'pokemon/'.$lookUp;
 
-        return $this->sendRequest($url);
+        return json_decode($this->sendRequest($url));
     }
 
+    public function updateNames()
+    {
+        $db = new Db();
+        $db->query('DROP TABLE IF EXISTS pokemons');
+        $db->query('CREATE TABLE pokemons (id INT NOT NULL, name VARCHAR(100))');
+        // As required by pokeapi.co, use offset and limit
+        $limit = 60;
+        $offset = 0;
+        $request = $this->name('');
+        $count = $request->count;
+
+        while ($count > $offset) {
+            $request = $this->name('?offset=' . $offset . '&limit=' . $limit);
+            foreach ($request->results as $pokemon) {
+                $pokeId = str_replace(array('https://pokeapi.co/api/v2/pokemon/','/'), array('',''), $pokemon->url);
+                $db->query("INSERT INTO pokemons VALUES (" . $pokeId . ", '" . $pokemon->name . "')");
+            }
+            $offset += $limit;
+        }
+
+        echo 'Pokemons name update finished succesfully.';
+    }
     /**
      * @param string $url
      */
