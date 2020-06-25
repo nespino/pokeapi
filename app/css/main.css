@@ -82,3 +82,7 @@ img.github {
     max-height: 30px;
     float: right;
 }
+
+#pokemon-template {
+    display: none;
+}

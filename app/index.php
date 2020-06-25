@@ -1,13 +1,3 @@
-<?php
-require 'class.pokeapi.php';
-$pokeApi = new PokePHP\PokeApi();
-
-if (isset($_GET['name'])) {
-    die($pokeApi->searchByName($_GET['name']));
-} else {
-    $pokeApi->checkUpdate(true);
-} ?>
-
 <html>
 
 <head>
@@ -59,6 +49,20 @@ if (isset($_GET['name'])) {
     <footer>
         <span>Copyleft - Nahuel Espiño </span>
     </footer>
+
+    <div id="pokemon-template">
+        <div class="row mt-5 ml-2 col-12">
+            <div class="col-3">
+                <img src="img/no-image.png">
+            </div>
+            <div class="col-3 pt-3">
+                <span class="pokemon-name">
+                    {{pokemonName}}
+                </span>
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
 </body>
 
 </html>
