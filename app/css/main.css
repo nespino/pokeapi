@@ -86,3 +86,11 @@ img.github {
 #pokemon-template {
     display: none;
 }
+
+#no-results, #results-title {
+    display: none;
+}
+
+#results-container {
+    min-height: 200px;
+}

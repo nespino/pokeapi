@@ -26,10 +26,14 @@
                 <input type="text" id="nombre-pokemon" placeholder="Ingrese el nombre a buscar"><button type="button" id="buscar-pokemon" class="btn btn-primary">Buscar</button>
             </div>
 
-            <div class="row mt-5 ml-1">
+            <div id="results-title" class="row mt-3 ml-1">
                 <h2>
                     Resultados de la búsqueda
                 </h2>
+            </div>
+
+            <div id="no-results" class="row ml-4 mt-2">
+                No se encontraron pokemons.
             </div>
 
             <div id="results-container" class="row">
@@ -53,12 +57,16 @@
     <div id="pokemon-template">
         <div class="row mt-5 ml-2 col-12">
             <div class="col-3">
-                <img src="img/no-image.png">
+                <a href="https://pokeapi.co/api/v2/pokemon/{{pokemonId}}" target="_blank" title="{{pokemonName}}">
+                    <img src="img/no-image.png">
+                </a>
             </div>
             <div class="col-3 pt-3">
-                <span class="pokemon-name">
-                    {{pokemonName}}
-                </span>
+                <a href="https://pokeapi.co/api/v2/pokemon/{{pokemonId}}" target="_blank" title="{{pokemonName}}">
+                    <span class="pokemon-name">
+                        {{pokemonName}}
+                    </span>
+                </a>
             </div>
             <div class="col-6"></div>
         </div>

@@ -49,16 +49,26 @@ class PokeApi
         die(json_encode(array('responseJSON' => $pokemons)));
     }
 
+    /**
+     * @param array $pokemons
+     * @param string $string
+     * @return jsonArray
+     */
     public function searchPokemons($pokemons, $string) {
-        $pokemons = json_decode($pokemons);
-
+        $pokemons = json_decode($pokemons, true);
+        foreach ($pokemons as $pokeId => $pokemon) {
+            if (strpos(strtolower($pokemon), strtolower($string)) === false) {
+                unset($pokemons[$pokeId]);
+            }
+        }
         die(json_encode(array('responseJSON' => $pokemons)));
     }
 
     /**
      * @param string $url
+     * @return jsonData
      */
-    public function sendRequest($url)
+    private function sendRequest($url)
     {
         $ch = curl_init();
 

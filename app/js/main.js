@@ -12,21 +12,44 @@ $(document).ready(function() {
 
     var getPokemonsUrl = 'app.php?getPokemons';
 
+    // Method to get the size of an object
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+
     function searchPokemons() {
+        $('#results-title').show();
+        searchString = $('#nombre-pokemon').val();
+        if (!searchString) {
+            $('#results-container').html('');
+            $('#no-results').show();
+            return;
+        }
         var pokemons = localStorage.getItem(getPokemonsUrl);
         $.ajax({
             url : 'app.php?searchPokemons',
             type : 'POST',
             data: {
                 pokemons: pokemons,
-                string: $('#nombre-pokemon').val()
+                searchString: searchString
             },
             dataType: "json",
             success : function(data) {
-                $('#results-container').html();
-                Object.entries(data['responseJSON']).forEach(([pokeId, pokemon]) => {
-                    $('#results-container').append($('#pokemon-template').html().replace('{{pokemonName}}', pokemon));
-                });
+                $('#results-container').html('');
+                if (Object.size(data['responseJSON'])) {
+                    $('#no-results').hide();
+                    Object.entries(data['responseJSON']).forEach(([pokeId, pokemon]) => {
+                        $('#results-container').append($('#pokemon-template').html().replace(new RegExp('{{pokemonName}}', 'g'), pokemon)
+                            .replace(new RegExp('{{pokemonId}}', 'g'), pokeId));
+                    });
+                } else {
+                    $('#no-results').show();
+                    $('#results-container').html('');
+                }
             },
             error : function(request, error) {
                 alert("Error: No se pudo conseguir el listado.");
@@ -75,4 +98,5 @@ $(document).ready(function() {
         });
     }
 
+    $('#nombre-pokemon').val('').focus();
 });
