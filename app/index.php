@@ -1,3 +1,10 @@
+<?php if (isset($_GET['name'])) {
+    require 'class.pokeapi.php';
+    $pokeApi = new PokePHP\PokeApi();
+    echo $pokeApi->searchByName($_GET['name']);
+    die;
+} ?>
+
 <html>
 
 <head>
@@ -32,37 +39,8 @@
                 </h2>
             </div>
 
-            <div class="row mt-5 ml-2">
-                <div class="col-3">
-                    <img src="img/no-image.png">
-                </div>
-                <div class="col-3 pt-3">
-                    <span class="pokemon-name">
-                        Pikachu
-                    </span>
-                </div>
-            </div>
-
-            <div class="row mt-5 ml-2">
-                <div class="col-3">
-                    <img src="img/no-image.png">
-                </div>
-                <div class="col-3 pt-3">
-                    <span class="pokemon-name">
-                        Pikachu
-                    </span>
-                </div>
-            </div>
-
-            <div class="row mt-5 ml-2">
-                <div class="col-3">
-                    <img src="img/no-image.png">
-                </div>
-                <div class="col-3 pt-3">
-                    <span class="pokemon-name">
-                        Pikachu
-                    </span>
-                </div>
+            <div id="results-container" class="row">
+                
             </div>
 
             <div class="row mt-5">

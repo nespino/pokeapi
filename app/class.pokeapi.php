@@ -27,6 +27,19 @@ class PokeApi
         return json_decode($this->sendRequest($url));
     }
 
+    public function searchByName($name) {
+        $result = '';
+        if (strlen($name) > 2) {
+            $template = file_get_contents('pokemon.tpl.php');
+            $db = new Db();
+            $pokemons = $db->query("SELECT name FROM pokemons WHERE LOWER(name) LIKE LOWER('%" . $name . "%');")->fetchAll();
+            foreach ($pokemons as $pokemon) {
+                $result .= str_replace('{{pokemonName}}', $pokemon['name'], $template);
+            }
+        }
+        return $result;
+    }
+
     public function updateNames()
     {
         $db = new Db();
