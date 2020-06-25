@@ -20,3 +20,4 @@ La solución debe cumplir los siguientes requisitos:
 
 - Clone the repository
 - Run docker-compose up -d in the cloned folder
+- Open your browser in: localhost:8000
