@@ -1,8 +1,11 @@
-<?php if (isset($_GET['name'])) {
-    require 'class.pokeapi.php';
-    $pokeApi = new PokePHP\PokeApi();
-    echo $pokeApi->searchByName($_GET['name']);
-    die;
+<?php
+require 'class.pokeapi.php';
+$pokeApi = new PokePHP\PokeApi();
+
+if (isset($_GET['name'])) {
+    die($pokeApi->searchByName($_GET['name']));
+} else {
+    $pokeApi->checkUpdate(true);
 } ?>
 
 <html>
