@@ -64,3 +64,21 @@ footer span {
     font-size: 10pt;
     color: darkred;
 }
+
+hr {
+    border-width: 2px;
+    border-color: #bbb;
+}
+
+.made-by {
+    margin-left: 30px;
+}
+
+.made-by img {
+    max-height: 30px;
+}
+
+img.github {
+    max-height: 30px;
+    float: right;
+}

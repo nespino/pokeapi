@@ -64,9 +64,19 @@
                     </span>
                 </div>
             </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <hr />
+                    <span class="made-by">Desafío hecho para <a href="https://www.ixpandit.com/" target="_blank"><img src="img/ixpandit.png" alt="ixpandit"></a></span>
+                    <a href="https://github.com/nespino/pokeapi" target="_blank"><img class="github mr-3" src="img/github.png" /></a>
+                </div>
+            </div>
+
         </div>
 
     </div>
+
     <footer>
         <span>Copyleft - Nahuel Espiño </span>
     </footer>
