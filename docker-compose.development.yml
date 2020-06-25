@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile.development
     links:
       #- mail
-      - mysql
+      #- mysql
       #- postgres
       #- solr
       #- elasticsearch
@@ -39,24 +39,24 @@ services:
   #######################################
   # MySQL server
   #######################################
-  mysql:
-    build:
-      context: docker/mysql/
+  #mysql:
+  #  build:
+  #    context: docker/mysql/
       #dockerfile: MySQL-5.5.Dockerfile
-      dockerfile: MySQL-5.6.Dockerfile
+      #dockerfile: MySQL-5.6.Dockerfile
       #dockerfile: MySQL-5.7.Dockerfile
       #dockerfile: MariaDB-5.5.Dockerfile
       #dockerfile: MariaDB-10.Dockerfile
       #dockerfile: Percona-5.5.Dockerfile
       #dockerfile: Percona-5.6.Dockerfile
       #dockerfile: Percona-5.7.Dockerfile
-    ports:
-      - 13306:3306
-    volumes:
-      - mysql:/var/lib/mysql
-    env_file:
-      - etc/environment.yml
-      - etc/environment.development.yml
+  #  ports:
+  #    - 13306:3306
+  #  volumes:
+  #    - mysql:/var/lib/mysql
+  #  env_file:
+  #    - etc/environment.yml
+  #    - etc/environment.development.yml
 
   #######################################
   # PostgreSQL server
