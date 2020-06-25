@@ -61,5 +61,18 @@ RUN ln -sf /opt/docker/etc/cron/crontab /etc/cron.d/docker-boilerplate \
     && echo >> /opt/docker/etc/cron/crontab \
     && ln -sf /opt/docker/etc/php/development.ini /opt/docker/etc/php/php.ini
 
+RUN apt-get -y install cron
+
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
+
+# Setup cron job
+RUN (crontab -l ; echo "0 23 * * * php /app/cron.php >> /var/log/cron.log") | crontab
+
+RUN php /app/cron
+
+# Run the command on container startup
+ENTRYPOINT [ "cron", "-f" ]
+
 # Configure volume/workdir
 WORKDIR /app/
