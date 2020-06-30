@@ -87,7 +87,7 @@ img.github {
     display: none;
 }
 
-#no-results, #results-title {
+#no-results, #results-title, #wait-for-local-storage {
     display: none;
 }
 

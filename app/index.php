@@ -49,6 +49,12 @@
                 </h2>
             </div>
 
+            <div id="wait-for-local-storage" class="row mt-3 ml-1">
+                <h3>
+                    Estamos preparando la base de datos de Pokemons!<br /> Por favor, aguarde...
+                </h3>
+            </div>
+
             <div id="no-results" class="row ml-4 mt-2">
                 No se encontraron pokemons.
             </div>

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    var lastUpdate;
+
     // TODO: It could be onchange instead of clicking a button/enter
     $('#buscar-pokemon').click(function() {
         searchPokemons();
@@ -28,7 +30,12 @@ $(document).ready(function() {
             $('#results-container').html('');
             $('#no-results').show();
             return;
+        } else if (!localStorage.getItem('last_update')) {
+            $('#wait-for-local-storage').show();
+            return;
         }
+        $('#wait-for-local-storage').hide();
+
         var pokemons = localStorage.getItem(getPokemonsUrl);
         $.ajax({
             url : 'app.php?searchPokemons',
