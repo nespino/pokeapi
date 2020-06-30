@@ -29,4 +29,4 @@ La solución debe cumplir los siguientes requisitos:
 # Development notes
 
 - Fue un desafío cumplir con el esquema de requests, dado que la pokeapi.co no ofrece búsquedas parciales, y a la vez, define en las reglas de uso que las requests deben ser cacheadas localmente.
-- En commits anteriores hay una versión que guarda los resultados en mysql. Ese diseño fue descartado para intentar acercarse a que la request hacia pokeapi.co naciera de una request desde el cliente.
+- En commits anteriores hay una versión que guarda los resultados en mysql. Ese diseño fue descartado para intentar acercarse a que la request hacia pokeapi.co naciera a partir de una request desde el cliente.
