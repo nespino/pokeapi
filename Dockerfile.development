@@ -64,3 +64,4 @@ RUN ln -sf /opt/docker/etc/cron/crontab /etc/cron.d/docker-boilerplate \
 # Configure volume/workdir
 WORKDIR /app/
 
+ENV PATH="/app/vendor/phpunit/phpunit:${PATH}"

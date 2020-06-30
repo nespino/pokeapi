@@ -46,7 +46,7 @@ class PokeApi
             }
             $offset += $limit;
         }
-        die(json_encode(array('responseJSON' => $pokemons)));
+        return json_encode(array('responseJSON' => $pokemons));
     }
 
     /**
@@ -61,14 +61,14 @@ class PokeApi
                 unset($pokemons[$pokeId]);
             }
         }
-        die(json_encode(array('responseJSON' => $pokemons)));
+        return json_encode(array('responseJSON' => $pokemons));
     }
 
     /**
      * @param string $url
      * @return jsonData
      */
-    private function sendRequest($url)
+    protected function sendRequest($url)
     {
         $ch = curl_init();
 

@@ -19,5 +19,9 @@ La solución debe cumplir los siguientes requisitos:
 # How to setup
 
 - Clone the repository
-- Run docker-compose up -d in the cloned folder
+- Run docker-compose up -d in the cloned folder (it should auto-build the image and get the container up)
 - Open your browser at http://localhost:8000
+
+# How to run tests
+
+- Run docker-compose exec app phpunit
